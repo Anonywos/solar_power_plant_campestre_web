@@ -80,8 +80,16 @@ function App() {
     }
   }, [averageConsumption, cosip, flag, tariff, wasCalculated, calculateSimulation])
 
+  function cleanFields() {
+    setAverageConsumption("")
+    setCosip("")
+    setFlag("")
+    setTariff("")
+    setWasCalculated(false)
+  }
+
   return (
-    <div className="relative flex flex-col h-screen justify-start overflow-y-auto">
+    <div className="relative flex flex-col justify-start overflow-y-auto">
       <section className="flex flex-col h-125 shrink-0 w-full bg-linear-to-r from-blue-light from-30% to-blue-dark px-20 pt-5">
         <header className="flex justify-center items-center h-14 content-between">
           <Icon svg={logo} className="w-13 h-13"/>
@@ -162,23 +170,28 @@ function App() {
         </div>
         {
           wasCalculated ? (
-            <div className="flex bg-gray-light min-h-36 shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-2xl">
-              <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
-                <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Valor sem benefício</Text>
-                <Button variant="tertiary" size="sm">{simulationValues[0].toFixed(2)}</Button>
+            <div className="flex flex-col w-full items-center pb-5 gap-5 min-h-60">
+              <div className="flex bg-gray-light min-h-36 shadow-[4px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-2xl">
+                <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
+                  <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Valor sem benefício</Text>
+                  <Button variant="tertiary" size="sm">{simulationValues[0].toFixed(2)}</Button>
+                </div>
+                <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
+                  <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Valor com benefício</Text>
+                  <Button variant="secondary" size="sm">{simulationValues[1].toFixed(2)}</Button>
+                </div>
+                <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
+                  <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Economia mensal</Text>
+                  <Button variant="secondary" size="sm">{simulationValues[2].toFixed(2)}</Button>
+                </div>
+                <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
+                  <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Economia aproximada anual</Text>
+                  <Button variant="quaternary" size="sm">{simulationValues[3].toFixed(2)}</Button>
+                </div>
               </div>
-              <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
-                <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Valor com benefício</Text>
-                <Button variant="secondary" size="sm">{simulationValues[1].toFixed(2)}</Button>
-              </div>
-              <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
-                <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Economia mensal</Text>
-                <Button variant="secondary" size="sm">{simulationValues[2].toFixed(2)}</Button>
-              </div>
-              <div className="flex flex-col max-w-35 items-center justify-center gap-2.5">
-                <Text variant="body-base-semibold" color="blue" className="h-15 text-center content-center">Economia aproximada anual</Text>
-                <Button variant="quaternary" size="sm">{simulationValues[3].toFixed(2)}</Button>
-              </div>
+              <Button
+                onClick={cleanFields}
+              >Recalcular</Button>
             </div>
           ) : (
             <Button 
