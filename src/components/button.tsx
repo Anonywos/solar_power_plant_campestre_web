@@ -1,10 +1,11 @@
 import React from "react"
 import { tv, type VariantProps } from "tailwind-variants";
 import Text from "./text";
+import Icon from "./icon";
 
 const ButtonVariants = tv({
     base: `
-        flex items-center justify-center rounded-xl
+        flex items-center justify-center rounded-xl gap-2
     `,
     variants: {
         variant: {
@@ -12,11 +13,13 @@ const ButtonVariants = tv({
             secondary: 'bg-green',
             tertiary: 'bg-red',
             quaternary: 'bg-linear-to-t from-green from-50% to-blue-dark',
+            quinary: 'bg-yellow',
             disabled: 'bg-gray',
         },
         size: {
             'md': 'w-44 h-9',
             'sm': 'h-7 px-2',
+            'lg': 'w-50 h-10'
         },
     },
     defaultVariants: {
@@ -27,6 +30,7 @@ const ButtonVariants = tv({
 
 interface ButtonProps extends React.ComponentProps<'button'>
     , VariantProps<typeof ButtonVariants> {
+    icon?: React.FC<React.ComponentProps<'svg'>>;
     className?: string;
     children?: React.ReactNode
 }
@@ -34,6 +38,7 @@ interface ButtonProps extends React.ComponentProps<'button'>
 export default function Button({
     variant,
     size,
+    icon,
     className,
     children,
     ...props
@@ -41,5 +46,8 @@ export default function Button({
     return <button
         className={ButtonVariants({className, variant, size})}
         {...props}
-    ><Text variant="body-sm-semibold" color="white">{children}</Text></button>
+    >
+        <Text variant="body-sm-semibold" color="white">{children}</Text>
+        {icon && (<Icon svg={icon} className="size-4 fill-white" />)}
+    </button>
 }
