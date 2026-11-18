@@ -14,6 +14,7 @@ const ButtonVariants = tv({
             tertiary: 'bg-red',
             quaternary: 'bg-linear-to-t from-green from-50% to-blue-dark',
             quinary: 'bg-yellow',
+            transparent: 'border rounded-2xl border-white',
             disabled: 'bg-gray',
         },
         size: {
@@ -47,7 +48,7 @@ export default function Button({
         className={ButtonVariants({className, variant, size})}
         {...props}
     >
-        <Text variant="body-sm-semibold" color="white">{children}</Text>
+        <Text variant="body-sm-semibold" color="gray">{children}</Text>
         {icon && (<Icon svg={icon} className="size-4 fill-white" />)}
     </button>
 }

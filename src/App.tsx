@@ -7,7 +7,7 @@ import Icon from "./components/icon";
 import PigIcon from './assets/piggy-bank.svg?react';
 import LeafIcon from './assets/leaf.svg?react';
 import WindRoseIcon from './assets/compass-rose.svg?react';
-import ArrowIcon from './assets/arrow-down.svg?react';
+// import ArrowIcon from './assets/arrow-down.svg?react';
 import logo from './assets/logo.svg?react'
 import powerImage from './assets/images/foto_cut.jpg'
 import powerVideo from './assets/video/video.mp4'
@@ -108,7 +108,15 @@ function App() {
           <Icon svg={logo} className="w-13 h-13"/>
           <div className="flex justify-center gap-14">
             {/* <Text as="a">sobre nós</Text> */}
-            <Text variant="body-base-semibold"><a href="#simulation">Faça uma simulação</a></Text>
+            {/* <Text variant="body-base-semibold"><a href="#simulation">Faça uma simulação</a></Text> */}
+            <Button
+              variant="quinary"
+              size="lg"
+              className="hover:cursor-pointer"
+              onClick={() => {
+                window.location.href = "#simulation";
+              }}
+            >Faça uma simulação</Button>
           </div>
         </header>
         <div className="flex h-full flex-col items-start justify-center gap-8 pt-15 lg:flex-row lg:items-center lg:justify-between lg:pt-0">
@@ -118,7 +126,7 @@ function App() {
               <Text as="h1" variant="body-6xl-bold" color="green" className="text-4xl sm:text-5xl lg:text-6xl">CAMPESTRE</Text>
             </div>
             <Text as="a">Até 30% de desconto na sua tarifa de energia de maneira sustentável!</Text>
-            <Button
+            {/* <Button
               variant="quinary"
               size="lg"
               icon={ArrowIcon}
@@ -126,7 +134,7 @@ function App() {
               onClick={() => {
                 window.location.href = "#simulation";
               }}
-            >Faça uma simulação</Button>
+            >Faça uma simulação</Button> */}
           </div>
           <div className="w-full lg:w-auto">
               <img src={powerImage} className="flex aspect-4/3 h-auto w-full max-w-160 max-h-80 rounded-3xl object-cover lg:h-full lg:w-220" />
