@@ -5,10 +5,12 @@
     --color-white: #FFFFFF;
     --color-gray-light: #F8F8F8;
     --color-gray: #6B6B6B;
+    --color-dark-gray: #242424;
     --color-green: #05BA62;
     --color-blue-light: #0060BF;
     --color-blue-dark: #1A00BF;
     --color-red: #BA1B06;
+    --color-yellow: #FFB700;
 
     --font-sans: "Montserrat", sans-serif; 
 }

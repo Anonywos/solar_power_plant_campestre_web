@@ -7,6 +7,7 @@ import Icon from "./components/icon";
 import PigIcon from './assets/piggy-bank.svg?react';
 import LeafIcon from './assets/leaf.svg?react';
 import WindRoseIcon from './assets/compass-rose.svg?react';
+// import ArrowIcon from './assets/arrow-down.svg?react';
 import logo from './assets/logo.svg?react'
 import powerImage from './assets/images/foto_cut.jpg'
 import powerVideo from './assets/video/video.mp4'
@@ -107,7 +108,16 @@ function App() {
           <Icon svg={logo} className="w-13 h-13"/>
           <div className="flex justify-center gap-14">
             {/* <Text as="a">sobre nós</Text> */}
-            <Text variant="body-base-semibold"><a href="#simulation">Faça uma simulação</a></Text>
+            {/* <Text variant="body-base-semibold"><a href="#simulation">Faça uma simulação</a></Text> */}
+            <Button
+              variant="quinary"
+              size="lg"
+              textVariants="dark"
+              className="hover:cursor-pointer"
+              onClick={() => {
+                window.location.href = "#simulation";
+              }}
+            >Faça uma simulação</Button>
           </div>
         </header>
         <div className="flex h-full flex-col items-start justify-center gap-8 pt-15 lg:flex-row lg:items-center lg:justify-between lg:pt-0">
@@ -117,6 +127,15 @@ function App() {
               <Text as="h1" variant="body-6xl-bold" color="green" className="text-4xl sm:text-5xl lg:text-6xl">CAMPESTRE</Text>
             </div>
             <Text as="a">Até 30% de desconto na sua tarifa de energia de maneira sustentável!</Text>
+            {/* <Button
+              variant="quinary"
+              size="lg"
+              icon={ArrowIcon}
+              className="hover:cursor-pointer mt-2.5"
+              onClick={() => {
+                window.location.href = "#simulation";
+              }}
+            >Faça uma simulação</Button> */}
           </div>
           <div className="w-full lg:w-auto">
               <img src={powerImage} className="flex aspect-4/3 h-auto w-full max-w-160 max-h-80 rounded-3xl object-cover lg:h-full lg:w-220" />
@@ -127,15 +146,15 @@ function App() {
       <div className={`relative z-10 mx-4 -mt-12 mb-8 grid w-auto grid-cols-1 gap-4 rounded-2xl bg-green px-5 py-6 sm:grid-cols-3 lg:absolute lg:left-1/2 lg:top-106 lg:mx-0 lg:mb-0 lg:mt-0 lg:flex lg:h-38 lg:w-175 lg:-translate-x-1/2 lg:items-center lg:justify-between lg:px-20 lg:py-2.5`}>
         <div className="flex min-h-24 flex-col items-center justify-center gap-2.5 sm:min-h-0 lg:h-full lg:max-w-33">
           <Icon svg={PigIcon} className="size-10 fill-white lg:size-12" />
-          <Text variant="body-xs-bold" className="text-center">Economize na conta de energia</Text>
+          <Text variant="body-sm-semibold" className="text-center">Economize na conta de energia</Text>
         </div>
         <div className="flex min-h-24 flex-col items-center justify-center gap-2.5 sm:min-h-0 lg:h-full lg:max-w-33">
           <Icon svg={LeafIcon} className="size-10 fill-white lg:size-12" />
-          <Text variant="body-xs-bold" className="text-center">Energia limpa e renovável</Text>
+          <Text variant="body-sm-semibold" className="text-center">Energia limpa e renovável</Text>
         </div>
         <div className="flex min-h-24 flex-col items-center justify-center gap-2.5 sm:min-h-0 lg:h-full lg:max-w-33">
           <Icon svg={WindRoseIcon} className="size-10 fill-white lg:size-12" />
-          <Text variant="body-xs-bold" className="text-center">Disponível para todo o Piauí</Text>
+          <Text variant="body-sm-semibold" className="text-center">Disponível para todo o Piauí</Text>
         </div>
       </div>
       <div className="flex min-h-0 shrink-0 flex-col items-center justify-center gap-8 px-5 py-14 sm:px-8 lg:h-145 lg:flex-row lg:gap-50 lg:px-0 lg:py-0">

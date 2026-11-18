@@ -17,6 +17,7 @@ export const TextVariants = tv({
         color: {
             'white': 'text-white',
             'gray': 'text-gray',
+            'dark-gray': 'text-dark-gray',
             'green': 'text-green',
             'blue': 'text-blue-light',
             'error': 'text-red',
