@@ -21,7 +21,7 @@ const ButtonVariants = tv({
             'md': 'w-44 h-9',
             'sm': 'h-7 px-2',
             'lg': 'w-50 h-10'
-        },
+        }
     },
     defaultVariants: {
         variant: 'primary',
@@ -32,6 +32,7 @@ const ButtonVariants = tv({
 interface ButtonProps extends React.ComponentProps<'button'>
     , VariantProps<typeof ButtonVariants> {
     icon?: React.FC<React.ComponentProps<'svg'>>;
+    textVariants?: 'white' | 'dark';
     className?: string;
     children?: React.ReactNode
 }
@@ -39,6 +40,7 @@ interface ButtonProps extends React.ComponentProps<'button'>
 export default function Button({
     variant,
     size,
+    textVariants = 'white',
     icon,
     className,
     children,
@@ -48,7 +50,7 @@ export default function Button({
         className={ButtonVariants({className, variant, size})}
         {...props}
     >
-        <Text variant="body-sm-semibold" color="gray">{children}</Text>
+        <Text variant="body-sm-semibold" color={textVariants === 'white' ? 'white' : 'dark-gray'}>{children}</Text>
         {icon && (<Icon svg={icon} className="size-4 fill-white" />)}
     </button>
 }

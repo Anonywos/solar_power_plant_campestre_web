@@ -112,6 +112,7 @@ function App() {
             <Button
               variant="quinary"
               size="lg"
+              textVariants="dark"
               className="hover:cursor-pointer"
               onClick={() => {
                 window.location.href = "#simulation";
