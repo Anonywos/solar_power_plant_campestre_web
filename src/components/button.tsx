@@ -13,7 +13,13 @@ const ButtonVariants = tv({
             secondary: 'bg-green',
             tertiary: 'bg-red',
             quaternary: 'bg-linear-to-t from-green from-50% to-blue-dark',
-            quinary: 'bg-yellow',
+            quinary: `
+                relative overflow-hidden
+                bg-yellow
+                after:absolute after:inset-y-0 after:left-0 after:w-1/3
+                after:bg-linear-to-r after:from-transparent after:via-white/50 after:to-transparent
+                after:animate-shine
+            `,
             transparent: 'border rounded-2xl border-white',
             disabled: 'bg-gray',
         },
